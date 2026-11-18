@@ -17,7 +17,13 @@ class TaskManager:
         return list(self.tasks)
 
     def complete_task(self, task_id):
-        raise NotImplementedError("Complete task not implemented yet")
+        for t in self.tasks:
+            if t["id"] == task_id:
+                if t["done"]:
+                    raise ValueError("Already completed")
+                t["done"] = True
+                return t
+        raise KeyError(f"Task {task_id} not found")
 
 
     def delete_task(self, task_id):
