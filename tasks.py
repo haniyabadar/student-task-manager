@@ -15,6 +15,8 @@ class TaskManager:
     def complete_task(self, task_id):
         for t in self.tasks:
             if t["id"] == task_id:
+                if t["done"]:
+                    raise ValueError("Already completed")
                 t["done"] = True
                 return t
         raise KeyError(f"Task {task_id} not found")
