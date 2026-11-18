@@ -27,4 +27,10 @@ class TaskManager:
 
 
     def delete_task(self, task_id):
-        raise NotImplementedError("Delete task not implemented yet")
+        if not isinstance(task_id, int):
+            raise ValueError("Task ID must be a number")
+        for t in self.tasks:
+            if t["id"] == task_id:
+                self.tasks.remove(t)
+                return t
+        raise KeyError(f"Task {task_id} not found")
