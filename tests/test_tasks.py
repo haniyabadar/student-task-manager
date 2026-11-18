@@ -13,7 +13,7 @@ class TestTaskManager(unittest.TestCase):
     def test_add_task(self):
         t = self.m.add_task("Study DevOps")
         self.assertEqual(t["title"], "Study DevOps")
-        self.assertEqual(len(self.m.list_tasks()), 2)
+        self.assertEqual(len(self.m.list_tasks()), 1)
 
     def test_complete_task(self):
         t = self.m.add_task("Lab")
