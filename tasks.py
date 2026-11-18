@@ -17,6 +17,8 @@ class TaskManager:
 
 
     def delete_task(self, task_id):
+        if not isinstance(task_id, int):
+            raise ValueError("Task ID must be a number")
         for t in self.tasks:
             if t["id"] == task_id:
                 self.tasks.remove(t)
