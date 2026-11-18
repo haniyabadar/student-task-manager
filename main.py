@@ -4,7 +4,7 @@ from tasks import TaskManager
 def show(manager):
     tasks = manager.list_tasks()
     if not tasks:
-        print("No tasks yet.")
+        print("No tasks yet. Add one first!")
     for t in tasks:
         mark = "x" if t["done"] else " "
         print(f"[{mark}] {t['id']}. {t['title']}")
